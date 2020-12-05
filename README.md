@@ -11,7 +11,7 @@ projections.
 
 - FreeGlut http://freeglut.sourceforge.net/
 - GLEW (OpenGL Extension Wrangler) http://glew.sourceforge.net/
-- GLM (OpenGL Math)
+- GLM (OpenGL Math) https://glm.g-truc.net/0.9.9/index.html
 - SOIL2 (Simple OpenGL Image Library) https://www.lonesock.net/soil.html
 
 
@@ -27,3 +27,4 @@ See https://youtu.be/qFlJXMpxAO4
 - Use cmake (https://cmake.org/)
 - Support quads in OBJ file
 - Implement Shadows
+- Implement menu interface to adjust scene configuration

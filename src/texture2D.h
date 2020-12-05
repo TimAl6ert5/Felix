@@ -1,9 +1,9 @@
 /*
- *    Due Date: 2020-11-15
+ *    Due Date: 2020-12-13
  *      Author: Tim Alberts (timothy.alberts@snhu.edu)
  *       Class: CS-499-X2150 Computer Science Capstone 20EW2
  *  Instructor: Joseph Conlan
- *  	Module: 3-2
+ *  	Module: 7-1
  */
 
 #ifndef TEXTURE2D_H_

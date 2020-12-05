@@ -18,7 +18,7 @@ CR video starting @ 7:30
 - [x] Fix bad variable names (camera yaw/pitch/radius, mouse pressed flag, 'value' timer function)
 - [x] Move mesh programs to files outside of source code
 - [x] Accept subject mesh and texture from command line arguments
-- [ ] Encapsulate the application (object-oriented rather than structured)
+- [x] Encapsulate the application (object-oriented rather than structured)
 - [ ] Encapsulate the configuration
 - [ ] Review comments
 - [ ] Refactor string split function
@@ -50,6 +50,7 @@ CR video starting @ 7:30
 	* member variables end with underscore
 * Modified mesh class for testability. Made initBuffers method required by the caller.
 * Moved shader source to separate files and modifed application to load the source from files.
+* Refactored the subject, lighting and camera into a 'Scene' object with methods to load, init, render and control
 
 
 ### Removed
