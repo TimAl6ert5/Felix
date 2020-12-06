@@ -17,9 +17,6 @@ Camera::Camera()
 	radius_(0.0f)
 {}
 
-Camera::~Camera()
-{}
-
 glm::mat4 Camera::GetViewMatrix() const {
 	return glm::lookAt(position_, target_position_, up_orientation_);
 }
@@ -29,7 +26,7 @@ void Camera::SetLookAt(const glm::vec3& target) {
 }
 
 void Camera::SetRadius(float radius) {
-	radius_ = glm::clamp(radius, 2.0f, 80.0f);
+	radius_ = glm::clamp(radius, kRadiusMin_, kRadiusMax_);
 }
 
 const glm::vec3& Camera::GetPosition() const {
@@ -40,7 +37,7 @@ void Camera::Rotate(float yaw, float pitch) {
 	yaw_ = glm::radians(yaw);
 	pitch_ = glm::radians(pitch);
 
-	pitch_ = glm::clamp(pitch_, -glm::pi<float>() / 2.0f + 0.1f, glm::pi<float>() / 2.0f - 0.1f);
+	pitch_ = glm::clamp(pitch_, kPitchMin_, kPitchMax_);
 	UpdateCameraVectors();
 }
 

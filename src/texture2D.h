@@ -6,8 +6,8 @@
  *  	Module: 7-1
  */
 
-#ifndef TEXTURE2D_H_
-#define TEXTURE2D_H_
+#ifndef TEXTURE_2D_H_
+#define TEXTURE_2D_H_
 
 #include <GL/glew.h>
 #include "SOIL2/SOIL2.h"
@@ -15,7 +15,6 @@
 class Texture2D {
  public:
 	Texture2D();
-	virtual ~Texture2D();
 
 	void LoadTexture(const char* filename);
 	void Bind(GLuint texUnit = 0);
@@ -23,6 +22,7 @@ class Texture2D {
 
  private:
 	GLuint texture_;
+
 };
 
-#endif /* TEXTURE2D_H_ */
+#endif // TEXTURE_2D_H_

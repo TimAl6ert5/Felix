@@ -15,7 +15,6 @@
 class Camera {
  public:
 	Camera();
-	virtual ~Camera();
 
 	glm::mat4 GetViewMatrix() const;
 	void Rotate(float yaw, float pitch); // rotate camera on XY axis ... in degrees
@@ -24,7 +23,6 @@ class Camera {
 	const glm::vec3& GetPosition() const;
 
  private:
-
 	void UpdateCameraVectors();
 
 	glm::vec3 position_;
@@ -35,6 +33,11 @@ class Camera {
 	float yaw_;
 	float pitch_;
 	float radius_;
+
+	const float kRadiusMin_ = 2.0f, kRadiusMax_ = 80.0f;
+	const float kPitchMin_ = -glm::pi<float>() / 2.0f + 0.1f;
+	const float kPitchMax_ = glm::pi<float>() / 2.0f - 0.1f;
+
 };
 
 #endif // CAMERA_H_

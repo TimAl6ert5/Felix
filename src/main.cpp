@@ -46,7 +46,7 @@ Scene scene;
 /*
  * Window configuration
  */
-char title[] = "Tim Alberts (Module 6-2)";
+char title[] = "Mesh Viewer";
 int default_position_x = 50;
 int default_position_y = 50;
 float default_bg_r = 0.0f;

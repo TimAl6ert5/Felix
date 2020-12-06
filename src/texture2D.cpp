@@ -12,9 +12,6 @@ Texture2D::Texture2D()
 	: texture_(0)
 {}
 
-Texture2D::~Texture2D()
-{}
-
 void Texture2D::LoadTexture(const char* filename) {
 	glGenTextures(1, &texture_);
 	glBindTexture(GL_TEXTURE_2D, texture_);
@@ -22,6 +19,7 @@ void Texture2D::LoadTexture(const char* filename) {
 	int width, height;
 
 	unsigned char* image = SOIL_load_image(filename, &width, &height, 0, SOIL_LOAD_RGB);
+	// TODO check image is not NULL, otherwise handle error
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 

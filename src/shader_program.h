@@ -44,10 +44,9 @@ class ShaderProgram {
 	GLuint GetProgram() const;
 
  private:
-
 	void CheckCompileErrors(GLuint shader, ShaderType type);
 	GLint GetUniformLocation(const GLchar* name);
-	std::string fileToString(const std::string& filename);
+	std::string FileToString(const std::string& filename);
 
 	GLuint program_handle_;
 	std::map<std::string, GLint> uniform_locations_;

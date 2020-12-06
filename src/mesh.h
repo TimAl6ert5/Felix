@@ -52,4 +52,4 @@ class Mesh {
 	float x_min_, x_max_, y_min_, y_max_, z_min_, z_max_;
 };
 
-#endif /* MESH_H_ */
+#endif // MESH_H_

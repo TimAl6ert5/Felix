@@ -17,8 +17,8 @@ ShaderProgram::~ShaderProgram() {
 }
 
 bool ShaderProgram::LoadShadersFiles(const std::string& vsFilename, const std::string& fsFilename) {
-	std::string vsString = fileToString(vsFilename);
-	std::string fsString = fileToString(fsFilename);
+	std::string vsString = FileToString(vsFilename);
+	std::string fsString = FileToString(fsFilename);
 	return LoadShaders(vsString.c_str(), fsString.c_str());
 }
 
@@ -85,7 +85,7 @@ void ShaderProgram::CheckCompileErrors(GLuint shader, ShaderType type) {
 	}
 }
 
-std::string ShaderProgram::fileToString(const std::string& filename) {
+std::string ShaderProgram::FileToString(const std::string& filename) {
 	std::stringstream ss;
 	std::ifstream file;
 
