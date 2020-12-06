@@ -12,14 +12,18 @@ Texture2D::Texture2D()
 	: texture_(0)
 {}
 
-void Texture2D::LoadTexture(const char* filename) {
+bool Texture2D::LoadTexture(const char* filename) {
 	glGenTextures(1, &texture_);
 	glBindTexture(GL_TEXTURE_2D, texture_);
 
 	int width, height;
 
 	unsigned char* image = SOIL_load_image(filename, &width, &height, 0, SOIL_LOAD_RGB);
-	// TODO check image is not NULL, otherwise handle error
+	// image load failed if NULL
+	if (image == NULL) {
+		std::cerr << "Failed to load texture file (" << filename << "): " << SOIL_last_result() << std::endl;
+		return false;
+	}
 
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
 
@@ -29,6 +33,7 @@ void Texture2D::LoadTexture(const char* filename) {
 	glGenerateMipmap(GL_TEXTURE_2D);
 	SOIL_free_image_data(image);
 	glBindTexture(GL_TEXTURE_2D, 0);
+	return true;
 }
 
 void Texture2D::Bind(GLuint texUnit) {

@@ -24,7 +24,7 @@ CR video starting @ 7:30
 - [ ] Refactor string split function
 - [ ] OBJ file validation
 - [ ] Handle errors in OBJ files
-- [ ] Review error handling of SOIL2 image loading
+- [x] Review error handling of SOIL2 image loading
 - [ ] Automatically adjust camera and lighting for the size of the subject
 
 
@@ -34,6 +34,7 @@ CR video starting @ 7:30
 * Added min/max dimensions for loaded Mesh object.
 * Implemented test cases for Mesh class.
 * Commandline arguments to set the subject mesh and texture files.
+* Added error message indicating any problem loading texture file.
 
 ### Changed
 

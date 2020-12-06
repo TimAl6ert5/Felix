@@ -6,34 +6,19 @@
  *  	Module: 7-1
  */
 
-#include "mesh.h"
+#include "mesh_test.h"
 
-//#define MESH_TEST
+int MeshTest::Run() {
+	int test_result = PASS;
 
-#ifdef MESH_TEST
+	test_result += TestLoadValidLightSphere();
+	test_result += TestLoadValidDollHighChair();
 
-#define PASS 0
-#define FAIL 1
-
-int TestLoadValidLightSphere();
-int TestLoadValidDollHighChair();
-
-int main() {
-	int result = PASS;
-
-	result += TestLoadValidLightSphere();
-	result += TestLoadValidDollHighChair();
-
-	if (result) {
-		std::cout << "FAIL" << std::endl;
-	} else {
-		std::cout << "PASS" << std::endl;
-	}
-	exit(result);
+	return test_result;
 }
 
-int TestLoadValidLightSphere() {
-	std::cout << "Begin - TestLoadValidLightSphere" << std::endl;
+int MeshTest::TestLoadValidLightSphere() {
+	LogInfo("Begin TestLoadValidLightSphere");
 	int result = PASS;
 
 	std::string testObjectFilename = "LightSphere.obj";
@@ -51,16 +36,16 @@ int TestLoadValidLightSphere() {
 		std::cout << "Z " << mesh.GetZMin() << " ... " << mesh.GetZMax() << std::endl;
 
 	} catch(...) {
-		std::cout << "Error" << std::endl;
+		LogError("Exception occurred");
 		result = FAIL;
 	}
 
+	LogInfo("End TestLoadValidLightSphere");
 	return result;
 }
 
-
-int TestLoadValidDollHighChair() {
-	std::cout << "Begin - TestLoadValidLightSphere" << std::endl;
+int MeshTest::TestLoadValidDollHighChair() {
+	LogInfo("Begin TestLoadValidDollHighChair");
 	int result = PASS;
 
 	std::string testObjectFilename = "DollHighChair03.obj";
@@ -78,12 +63,11 @@ int TestLoadValidDollHighChair() {
 		std::cout << "Z " << mesh.GetZMin() << " ... " << mesh.GetZMax() << std::endl;
 
 	} catch(...) {
-		std::cout << "Error" << std::endl;
+		LogError("Exception occurred");
 		result = FAIL;
 	}
 
+	LogInfo("End TestLoadValidDollHighChair");
 	return result;
 }
 
-
-#endif // MESH_TEST

@@ -17,8 +17,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "scene.h"
-
-//#define RUN_TESTS
+#include "test_config.h"
+#ifdef RUN_TESTS
+#include "test_suite.h"
+#endif // RUN_TESTS
 
 /*
  * Function Prototypes
@@ -62,15 +64,26 @@ bool left_mouse_held = false;
 bool right_mouse_held = false;
 
 
+#ifndef RUN_TESTS
 static void ShowUsage(std::string name) {
 	std::cerr << "Usage: " << name << " OBJECT_FILE, TEXTURE_FILE"
 			<< std::endl;
 }
+#endif // RUN_TESTS
 
-#ifndef RUN_TESTS
 /* Main Program */
 int main(int argc, char* argv[]) {
+#ifdef RUN_TESTS
+	TestSuite testSuite;
+	int test_result = testSuite.Run();
+	if (test_result == PASS) {
+		std::cout << "Test Passed" << std::endl;
+	} else {
+		std::cout << "Test Failed" << std::endl;
+	}
+	return test_result;
 
+#else
 	if (argc != 3) {
 		ShowUsage(argv[0]);
 		exit(EXIT_FAILURE);
@@ -82,8 +95,9 @@ int main(int argc, char* argv[]) {
 	InitializeApp(argc, argv);
 	glutMainLoop();
 	exit(EXIT_SUCCESS);
-}
+
 #endif
+}
 
 void InitializeWindow(int argc, char* argv[]) {
 	// Initializes FreeGLUT

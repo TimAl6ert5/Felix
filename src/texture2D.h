@@ -9,6 +9,7 @@
 #ifndef TEXTURE_2D_H_
 #define TEXTURE_2D_H_
 
+#include <iostream>
 #include <GL/glew.h>
 #include "SOIL2/SOIL2.h"
 
@@ -16,7 +17,7 @@ class Texture2D {
  public:
 	Texture2D();
 
-	void LoadTexture(const char* filename);
+	bool LoadTexture(const char* filename);
 	void Bind(GLuint texUnit = 0);
 	void Unbind(GLuint texUnit = 0);
 
